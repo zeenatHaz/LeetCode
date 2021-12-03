@@ -1,0 +1,45 @@
+ public int LengthOfLongestSubstring(string s)
+        {
+            int len = 0;
+            if (s.Length == 0)
+            {
+                return 0;
+            }
+            if (s.Length > 0 && s.Trim().Length == 0)
+            {
+                return 1;
+            }
+            if (s.Trim().Length == 1)
+            {
+                return s.Trim().Length;
+            }
+            for (int i = 0; i < s.Length; i++)
+            {
+                List<char> res = new List<char>();
+                for (int j = i; j < s.Length; j++)
+                {
+                    if (res.Count == 0)
+                    {
+                        res.Add(s[i]);
+                    }
+                    else
+                    {
+                        if (res.Contains(s[j]))
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            res.Add(s[j]);
+                        }
+                    }
+                }
+                if (len < res.Count)
+                {
+                    len = res.Count;
+                }
+
+            }
+
+            return len;
+        }
