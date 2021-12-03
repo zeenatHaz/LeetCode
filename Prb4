@@ -1,0 +1,22 @@
+ public double FindMedianSortedArrays(int[] nums1, int[] nums2)
+        {
+            int[] arr = nums1.Concat(nums2).ToArray();
+            int median = 0;
+            arr = arr.OrderBy(i => i).ToArray();
+
+            if (arr.Length % 2 == 0)
+            {
+                
+
+                int x = arr.Length / 2;
+                int y = arr.Length / 2 - 1;
+                median = arr[(x + y) / 2];
+            }
+            else
+            {
+                //return the mid element.
+                median = arr[arr.Length / 2];
+
+            }
+            return median;
+        }
