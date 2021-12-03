@@ -1,0 +1,12 @@
+ public int RemoveElement(int[] nums, int val) {
+       
+        int i=0;
+          foreach(var elem in nums){
+               if (elem != val){
+                nums[i] = elem;                
+                i++;
+            }
+          }
+           
+            return i;
+    }
