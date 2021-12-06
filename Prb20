@@ -1,0 +1,18 @@
+public class Solution {
+    public bool IsValid(string s) {
+        bool isValid=false;
+        int n=-1;
+        while(n!=s.Length){
+            n=s.Length;
+            s=s.Replace("()","");
+            s=s.Replace("{}","");
+            s=s.Replace("[]","");
+            if(s.Length==0){
+                isValid=true;
+            }else{
+                isValid=false;
+            }
+        }
+        return isValid;
+    }
+}
