@@ -1,0 +1,12 @@
+public int StrStr(string haystack, string needle) {
+         int x = 0;
+            if (haystack.Contains(needle))
+            {
+                x= haystack.IndexOf(needle);
+                return x;
+            }
+            else
+            {
+                return -1;
+            }
+    }
