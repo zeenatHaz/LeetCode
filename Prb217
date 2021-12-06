@@ -1,0 +1,11 @@
+public class Solution {
+    public bool ContainsDuplicate(int[] nums) {
+       var res =nums.Distinct<int>().ToArray();
+        if(nums.Length>res.Count()){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+}
