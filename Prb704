@@ -1,0 +1,37 @@
+ public int binary(int[] arr,int target)
+        {
+            int s = 0;
+            int e = arr.Length - 1;
+            int mid = -1;
+            bool elementExist = false;
+            while (s <= e)
+            {
+                mid = ((s + e) / 2);
+
+                if (arr[mid] == target)
+                {
+                    elementExist = true;
+                    return mid;
+                }
+                else
+                {
+                    //update mid here
+                    if (arr[mid] < target)
+                    {
+                        s = mid + 1;
+                    }
+                    else
+                    {
+                        e = mid - 1;
+                    }
+
+
+                }
+
+            }
+            if (!elementExist)
+            {
+                return -1; //elelemt not found
+            }
+            return mid;
+        }
