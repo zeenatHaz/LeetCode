@@ -1,0 +1,19 @@
+ public bool IsPalindrome(int x) {
+          bool isValid = true;
+         string str = x.ToString();//12321
+         if(str.Length==1){
+            return isValid=true;
+         }
+          
+            for(int i = 0; i < str.Length/2; i++)
+            {
+                if (str[i] != str[str.Length - 1 - i]){
+                    isValid = false;
+                    break;
+                }
+
+            }
+
+            Console.WriteLine(isValid);
+            return isValid;
+    }
