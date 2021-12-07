@@ -1,0 +1,17 @@
+  ###### Not efficient
+  
+     public bool IsPowerOfThree(int n) {
+        int i=0;
+        int j=0;
+        while(j<n){
+            //keep incrementing j while comaring the power value with the  value of n passed/
+            j=(int)Math.Pow(3,i);
+            if(j==n){
+                return true;
+            }else{
+                i=i+1;
+            }
+        }
+        
+        return false;
+    }
