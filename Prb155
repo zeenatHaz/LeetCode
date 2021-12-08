@@ -1,0 +1,33 @@
+public class MinStack {
+
+    
+    Stack<int> myStack;
+    public MinStack() {
+        myStack=new Stack<int>();
+    }
+    
+    public void Push(int val) {
+        myStack.Push(val);
+    }
+    
+    public void Pop() {
+        myStack.Pop();
+    }
+    
+    public int Top() {
+        return myStack.Peek();
+    }
+    
+    public int GetMin() {
+        return myStack.Min();
+    }
+}
+
+/**
+ * Your MinStack object will be instantiated and called as such:
+ * MinStack obj = new MinStack();
+ * obj.Push(val);
+ * obj.Pop();
+ * int param_3 = obj.Top();
+ * int param_4 = obj.GetMin();
+ */
