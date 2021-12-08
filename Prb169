@@ -1,0 +1,15 @@
+ public int MajorityElement(int[] nums) {
+         int res = 0;
+
+          foreach (var grp in nums.GroupBy(i => i))
+            {
+                Console.WriteLine("{0} : {1}", grp.Key, grp.Count());
+                if (grp.Count() > nums.Length / 2)
+                {
+                   res= grp.Key;
+                }
+            }
+
+
+            return res;
+    }
