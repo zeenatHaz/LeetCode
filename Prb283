@@ -1,0 +1,15 @@
+ public void MoveZeroes(int[] nums) {
+     
+        int z=0;
+        for(int i=0;i< nums.Length;i++){
+            if(nums[i]!=0){
+                nums[z++]=nums[i];
+                
+            }
+        }
+        
+    // z sould point to the last non zero element.
+        for(int i=z;i<nums.Length;i++){
+            nums[i]=0;
+        }
+    }
