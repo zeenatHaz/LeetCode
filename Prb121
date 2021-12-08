@@ -6,3 +6,4 @@
         }
         return maxSoFar;
     }
+//use Kadane's Algo.
