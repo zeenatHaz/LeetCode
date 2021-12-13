@@ -1,0 +1,35 @@
+ public static int FirstMissingPositive(int[] nums) 
+        {
+            int ptr = 0;
+            int n = nums.Length;
+            // Check if 1 is present in array or not
+            for (int i = 0; i < n; i++)
+            {
+                if (nums[i] == 1)
+                {
+                    ptr = 1;
+                    break;
+                }
+            }
+
+            // If 1 is not present
+            if (ptr == 0)
+                return 1;
+
+            // Changing values to 1
+            for (int i = 0; i < n; i++)
+                if (nums[i] <= 0 || nums[i] > n)
+                    nums[i] = 1;
+
+            // Updating indices according to values
+            for (int i = 0; i < n; i++)
+                nums[(nums[i] - 1) % n] += n;
+
+            // Finding which index has value less than n
+            for (int i = 0; i < n; i++)
+                if (nums[i] <= n)
+                    return i + 1;
+
+            // If numsay has values from 1 to n
+            return n + 1;
+        }
