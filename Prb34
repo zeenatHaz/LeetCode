@@ -1,0 +1,25 @@
+ public int[] SearchRange(int[] nums, int target) {
+      List<int> res = new List<int>();
+            var exists = nums.Any(p => p == target);
+            if (!exists)
+            {
+                res.Add(-1);
+                res.Add(-1);
+            }
+            else
+            {
+                int  endIndex = 0;
+                for(int i = 0; i < nums.Length; i++)
+                {
+                    if (nums[i] == target)
+                    {
+                        res.Add(i);
+                        continue;
+                    }
+                }
+            }
+            int k = res[0];
+            int j = res[res.Count() - 1];
+           int[] result ={ k,j};
+            return result;
+    }
