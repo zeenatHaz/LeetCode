@@ -1,0 +1,18 @@
+public int MySqrt(int x) {
+    int ans=0,zero=0;
+
+        
+    if(x==0){
+        ans=0;
+    }
+     for(int i=1;i<=x;i++){
+         if(i*i==x){
+             ans=i;
+             break;
+         }else if(i*i >x){
+             ans=i-1;
+             break;
+         }
+     }
+        return ans;
+}
