@@ -1,0 +1,13 @@
+ public IList<int> FindDisappearedNumbers(int[] nums) {
+          int n = nums.Length;
+            int lowerRange = 1;
+            int upperRance = n;
+            int[] temp = new int[n];
+            List<int> res = new List<int>();
+            for (int i = 0; i < temp.Length; i++)
+            {
+                temp[i] = i + 1; 
+            }
+            var x = temp.Except(nums);
+            return x.ToList(); ;
+    }
