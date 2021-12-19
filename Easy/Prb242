@@ -1,0 +1,11 @@
+ public bool IsAnagram(string s, string t) {
+        char[] s1=s.ToCharArray();
+        char[] s2=t.ToCharArray();
+    Array.Sort(s1);
+        Array.Sort(s2);
+       if(s1.SequenceEqual(s2)){
+           return true;
+       }
+        
+        return false;
+    }
