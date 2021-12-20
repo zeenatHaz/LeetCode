@@ -1,0 +1,11 @@
+function rotate(nums: number[], k: number): void {
+    
+    for(var i=0;i<k;i++){
+          var  x=nums.pop();
+  nums.unshift(x);
+    }
+
+  for(var i=0;i<nums.length;i++){
+      console.log(nums[i]);
+  }
+};
