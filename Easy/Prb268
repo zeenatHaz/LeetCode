@@ -1,0 +1,32 @@
+ public int MissingNumber(int[] nums) {
+        
+       int n = nums.Length;
+            int result = -1;
+            if (n == 1 && nums[0]==0)
+            {
+                //then range is till 1/
+                result = 1;
+                return result;
+            }
+        
+         if (n == 0 && nums[0]==1)
+            {
+                //then range is till 1/
+                result = 0;
+                return result;
+            }
+            //you can use binary search.
+            int[] temp = new int[nums.Length];
+
+            for (int i = 1; i <= n; i++)
+            {
+                temp[i - 1] = i;
+            }
+
+            var x = temp.Except(nums);
+            if (x!=null)
+            {
+               result= Convert.ToInt32(x.FirstOrDefault());
+            }
+            return result;
+    }
