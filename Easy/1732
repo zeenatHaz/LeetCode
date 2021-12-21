@@ -1,0 +1,9 @@
+  public int LargestAltitude(int[] gain) {
+        int n=gain.Length+1;
+        int[] res=new int[n];
+        res[0]=0;// since he is starting at 0;
+        for(int i=0;i<gain.Length;i++){
+            res[i+1]=res[i]+gain[i];
+        }
+        return res.Max();
+    }
