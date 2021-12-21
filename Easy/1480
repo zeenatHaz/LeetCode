@@ -1,0 +1,10 @@
+public int[] RunningSum(int[] nums) {
+         int[] res = new int[nums.Length];
+            res[0] = nums[0];
+            for (int i = 1; i < nums.Length; i++)
+            {
+                int sum = res[i - 1] + nums[i];
+                res[i] = sum;
+            }
+            return res;
+    }
