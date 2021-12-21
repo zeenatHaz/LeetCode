@@ -1,0 +1,6 @@
+ public int FindPeakElement(int[] nums) {
+        
+       int max=nums.Max();
+       int index=Array.IndexOf(nums,max);
+        return index;
+    }
