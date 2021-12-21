@@ -1,0 +1,10 @@
+  public bool ArrayStringsAreEqual(string[] word1, string[] word2) {
+        string s1="",s2="";
+        foreach(var item in word1){
+            s1=s1+item;
+        }
+         foreach(var item in word2){
+            s2=s2+item;
+        }
+       return s1==s2;
+    }
