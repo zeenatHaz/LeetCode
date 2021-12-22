@@ -1,0 +1,23 @@
+public class Solution {
+    public void WiggleSort(int[] nums) {
+        Array.Sort(nums);
+        int index=nums.Length-1;
+        int[] result=new int[nums.Length];
+        for(int i=1;i<nums.Length;i=i+2){
+            result[i]=nums[index];
+            index--;
+            
+        }
+        
+        int j = ((nums.Length -1) % 2 == 0) ? nums.Length -1: nums.Length - 2;
+    index = 0;
+    for (; j >= 0; j-= 2) {
+      result[j] = nums[index];
+      ++index;
+    }
+        foreach(var item in result){
+            Console.WriteLine(item);
+        }
+        Array.Copy(result,nums,nums.Length);
+    }
+}
