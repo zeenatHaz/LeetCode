@@ -1,0 +1,5 @@
+public int FindKthLargest(int[] nums, int k) {
+        Array.Sort(nums);
+        int x=nums[nums.Length-k];
+        return x;
+    }
