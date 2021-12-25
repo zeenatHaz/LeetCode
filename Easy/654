@@ -1,0 +1,24 @@
+ public int[] FindErrorNums(int[] nums)
+        {
+            List<int> res = new List<int>();
+            int n = nums.Length;
+            int dup = -1;
+            for (int i = 0; i <= nums.Length-1; i++)
+            {
+                if (i < nums.Length - 1)
+                {
+                    if (nums[i] == nums[i + 1])
+                    {
+                        dup = nums[i];
+                    }
+                }
+               
+                res.Add(i+1);
+            }
+
+            List<int> ans = new List<int>();
+            ans.Add(dup);
+            var x = res.Except(nums).First();
+            ans.Add(Convert.ToInt32(x));
+            return ans.ToArray();
+        }
