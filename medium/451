@@ -1,0 +1,27 @@
+Time Limited excedd answer.Check the apporach though.
+
+
+public class Solution {
+    public string FrequencySort(string s) {
+        Dictionary<char,int> dict=new Dictionary<char,int>();
+        foreach(char item in s){
+            if(dict.ContainsKey(item)){
+                dict[item]=dict[item]+1;
+            }else{
+                dict.Add(item,1);
+            }
+        }
+       
+         var x= dict.OrderByDescending(p => p.Value);
+            string str = "";
+            foreach(var entry in x)
+            {
+               for(int i = 0; i < entry.Value; i++)
+                {
+                    str = str + entry.Key;
+                }
+            }
+        
+        return str;
+    }
+}
