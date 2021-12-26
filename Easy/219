@@ -1,0 +1,29 @@
+public class Solution {
+    public int FirstUniqChar(string s) {
+       int res = -1;
+            Dictionary<char, int> dict = new Dictionary<char, int>();
+            char ansKey = ' ';
+            foreach (char item in s)
+            {
+                if (dict.ContainsKey(item))
+                {
+                    dict[item] = dict[item] + 1;
+                }
+                else
+                {
+                    dict.Add(item, 1);
+                }
+            }         
+           
+            ansKey = dict.FirstOrDefault(p => p.Value == 1).Key;
+            for (int i = 0; i < s.Length; i++)
+            {
+                if (s[i] == ansKey)
+                {
+                    res = i;
+                }
+            }
+
+            return res;
+    }
+}
