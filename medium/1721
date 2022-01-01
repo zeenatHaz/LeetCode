@@ -1,0 +1,75 @@
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     public int val;
+ *     public ListNode next;
+ *     public ListNode(int val=0, ListNode next=null) {
+ *         this.val = val;
+ *         this.next = next;
+ *     }
+ * }
+ */
+public class Solution {
+    public ListNode SwapNodes(ListNode head, int k) {
+        int l=this.getLL(head);
+        int endIndex=l-k+1;
+        int startIndex=k;
+        ListNode temp=head;
+         ListNode curr=head;
+        //
+        
+        int x=getNodevaluefromIndex(head,startIndex);
+        
+        Console.WriteLine(x);
+      
+       int y=getNodevaluefromIndex(head,endIndex);
+       Console.WriteLine(y);
+        int i=1;
+        while(temp!=null){
+            if(i==startIndex){
+                temp.val=y;
+                break;
+            }
+            temp=temp.next;
+            i++;
+        }
+        i=1;
+        temp=head;
+        while(temp!=null){
+            if(i==endIndex){
+                temp.val=x;
+                break;
+            }
+            temp=temp.next;
+            i++;
+        }
+        
+        
+        return head;
+    }
+    
+    private int getLL(ListNode head){
+        int c=0;
+        while(head!=null){
+            c++;
+            head=head.next;
+        }
+        
+        return c;
+    }
+    
+    private int getNodevaluefromIndex(ListNode head,int index){
+        int indexLocal=1;
+        while(head!=null){
+            if(indexLocal==index){
+                return head.val;
+                break;
+            }
+            
+            indexLocal++;
+            head=head.next;
+        }
+        
+        return head.val;
+    }
+}
