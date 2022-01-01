@@ -1,0 +1,30 @@
+public class Solution {
+    public ListNode RemoveNthFromEnd(ListNode head, int n) {
+        ListNode temp=head;
+        int index=1;
+        int targetIndex=this.getLengthOfLL(head)-n;
+        if(targetIndex==0){
+            return head.next; //point the head element to the next in the list.
+        }
+        while(head!=null){
+            
+            if(targetIndex==index){
+                 temp.next=temp.next.next;
+                break;
+            }
+            temp=temp.next;
+            index++;
+        }
+        return head;
+    }
+    
+    private int getLengthOfLL(ListNode head){
+        int c=0;
+        while(head!=null){
+            c++;
+            head=head.next;
+        }
+        Console.WriteLine(c);
+        return c;
+    }
+}
