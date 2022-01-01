@@ -1,0 +1,33 @@
+ public ListNode DeleteMiddle(ListNode head) {
+        ListNode curr=head;
+        int LL=LengthOfLL(head);
+        int targetIndex=0;
+        int index=1;
+        targetIndex=LL/2;
+        Console.WriteLine(targetIndex);
+        if(targetIndex==0){
+            return head.next;
+        }
+       while(head!=null){
+            
+            if(targetIndex==index){
+                 curr.next=curr.next.next;
+                break;
+            }
+            curr=curr.next;
+            index++;
+        }
+        return head;
+    }
+    
+    
+    private int LengthOfLL(ListNode head){
+         int c=0;
+        while(head!=null){
+            c++;
+            head=head.next;
+        }
+        Console.WriteLine(c);
+        return c;
+    }
+  
