@@ -1,0 +1,43 @@
+/**  /// Solution Time Loimit exceeds..Not an optimal solution if the Length of the linked list is unsuually high.
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     public int val;
+ *     public ListNode next;
+ *     public ListNode(int val=0, ListNode next=null) {
+ *         this.val = val;
+ *         this.next = next;
+ *     }
+ * }
+ */
+public class Solution {
+    public ListNode SortList(ListNode head) {
+        ListNode curr=head;
+        ListNode index=curr;
+        
+        
+        // base case
+        if(head==null){
+            return head;
+        }
+        if(head.next==null){
+            return head;
+        }
+        while(curr!=null){
+            
+            index=curr.next;
+            while(index!=null){
+                if(curr.val>index.val){
+                    // swapp data
+                    int data=curr.val;
+                    curr.val=index.val;
+                    index.val=data;
+                }
+                index=index.next;
+            }
+            
+            curr=curr.next;
+        }
+        
+        return head;
+    }
+}
