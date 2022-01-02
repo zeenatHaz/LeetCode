@@ -1,0 +1,33 @@
+public class Solution {
+    public IList<string> FizzBuzz(int n) {
+        IList<string> res=new List<string>();
+         
+      if(n==2 ||n==1){
+          for(int i=1;i<=n;i++){
+              res.Add(i.ToString());
+          }
+      }else{
+          
+          for(int i=1;i<=n;i++){
+                bool divisibleBy3 = (i % 3 == 0);
+               bool divisibleBy5 = (i % 5 == 0);
+              
+              if(divisibleBy3 && divisibleBy5){
+                  res.Add("FizzBuzz");
+              }else if(divisibleBy3)
+            
+                  res.Add("Fizz");
+                  
+              else if(divisibleBy5){
+                  res.Add("Buzz");
+                  
+              }else{
+                  res.Add(i.ToString());
+              }
+          }
+          
+      }
+        
+        return res;
+    }
+}
