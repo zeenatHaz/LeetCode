@@ -1,0 +1,40 @@
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     public int val;
+ *     public TreeNode left;
+ *     public TreeNode right;
+ *     public TreeNode(int val=0, TreeNode left=null, TreeNode right=null) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+public class Solution {
+    public TreeNode MergeTrees(TreeNode root1, TreeNode root2) {
+        return _mergeTree(root1,root2);
+    }
+    
+    private TreeNode _mergeTree(TreeNode t1,TreeNode t2){
+        //check the base scenarios now.
+        //call it the superImpose conditions
+        if(t1==null && t2==null){
+            return null;
+        }
+        if(t1!=null && t2==null){
+            //return the not null value/
+            return t1;
+        }
+        if(t1==null && t2!=null){
+            return t2;
+        }
+        //now if the above is not met then do the summation of the t1.val and t
+        
+        TreeNode summation=new TreeNode(t1.val+t2.val);
+        summation.left=_mergeTree(t1.left,t2.left);
+        summation.right=_mergeTree(t1.right,t2.right);
+        
+        return summation;
+    }
+}
