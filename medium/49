@@ -1,0 +1,32 @@
+public class Solution {
+    public IList<IList<string>> GroupAnagrams(string[] strs) {
+
+       IList<IList<string>> res = new List<IList<string>>();
+            Dictionary<string, List<string>> dt = new Dictionary<string, List<string>>();
+            int index = 0;
+            for (int i = 0; i < strs.Length; i++)
+            {
+                String d = String.Concat(strs[i].OrderBy(x => x));
+                List<string> curr = new List<string>();
+                if (!dt.ContainsKey(d))
+                {
+                   
+                    curr.Add(strs[i]);
+                    dt.Add(d,curr);
+                }
+                else
+                {
+                   List<string> temp = dt.FirstOrDefault(p => p.Key == d).Value.ToList();
+                    temp.Add(strs[i]);
+                    dt[d] = temp;
+
+
+                }
+            }
+           foreach(var key in dt)
+            {
+                res.Add(key.Value);
+            }
+            return res;
+    }
+}
