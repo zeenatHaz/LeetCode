@@ -1,0 +1,43 @@
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     public int val;
+ *     public TreeNode left;
+ *     public TreeNode right;
+ *     public TreeNode(int val=0, TreeNode left=null, TreeNode right=null) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+public class Solution {
+    public int CountNodes(TreeNode root) {
+        int left_level=1;
+        int right_level=1;
+        if(root==null){
+            return 0;
+        }
+        
+        TreeNode l=root.left;
+        TreeNode r=root.right;
+        while(l!=null){
+            left_level++; //count the number of level on the left hand side side.
+            l=l.left;//increment the l pointer to the next level/
+        }
+        Console.WriteLine(l);
+        
+        while(r!=null){
+            right_level++; //count the number of level on the right side.
+            r=r.right;//increment the r pointer to the next level/
+        }
+        
+        if(left_level==right_level) //means it is perfect binary tree,then the number of nodes on that root will be    //2(N)-1
+        {
+            return (int)Math.Pow(2,left_level)-1;
+        }
+        
+        //keep doing the same process until the root is null
+        return (1+ CountNodes(root.left)+CountNodes(root.right));
+    }
+}
