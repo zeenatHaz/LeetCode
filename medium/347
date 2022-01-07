@@ -1,0 +1,21 @@
+//nlogN comlexiy
+
+ public int[] TopKFrequent(int[] nums, int k) {
+        Dictionary<int,int> dt=new Dictionary<int,int>();
+       
+        for(int i=0;i<nums.Length;i++){
+            if(!dt.ContainsKey(nums[i])){
+                dt.Add(nums[i],1);
+            }else{
+                dt[nums[i]]++;
+            }
+        }
+        
+      
+      List<int> lst=new List<int>();
+       foreach(var ele in dt.OrderByDescending(x=>x.Value)){
+           lst.Add(ele.Key);
+       }
+     
+      return dt.OrderByDescending(x => x.Value).Take(k).Select(x => x.Key).ToArray();
+    }
