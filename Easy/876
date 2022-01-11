@@ -1,4 +1,8 @@
-/**
+/** Two Solutions Below.
+
+
+
+1)
  * Definition for singly-linked list.
  * public class ListNode {
  *     public int val;
@@ -39,3 +43,20 @@ public class Solution {
         return c;
     }
 }
+
+
+
+2) Using Slow and fast Pointers.
+
+ public ListNode MiddleNode(ListNode head) {
+        
+        ListNode slow=head;
+        ListNode fast=head;
+        
+        while(fast!=null && fast.next !=null){
+            slow=slow.next;
+            fast=fast.next.next;
+        }
+        
+        return slow;
+    }
