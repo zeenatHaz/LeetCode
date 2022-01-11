@@ -1,0 +1,53 @@
+public class Solution {
+    
+    bool[,] visited;
+    public bool Exist(char[][] board, string word) {
+        int rows=board.Length;
+        int columns=board[0].Length;
+        
+        
+        //run your loop here.
+        visited=new bool[rows,columns];
+        
+        for(int i=0;i<rows;i++){
+            
+            for(int j=0;j<columns;j++){
+                
+                if(word.ElementAt(0)==board[i][j] && searchWord(i,j,0,word,board)){
+                    //word is present. You search for the frst letter then look around its negihbours 
+                    // thru a recursive call and check if it forms the input word,If yes return true.
+                    
+                    return true;
+                }
+            }
+        }
+        
+        return false;
+    }
+    
+    
+    public bool searchWord(int i,int j,int index,string word,char[][] board){
+      
+         if(index==word.Length){
+             return true;
+         }
+      
+        
+        //check for the boundary conditions
+        if(i<0 || i>=board.Length|| j<0 || j>=board[i].Length|| visited[i,j] 
+          || word.ElementAt(index)!=board[i][j]){
+            return false;
+        }
+          visited[i,j]=true;
+        
+        if(searchWord(i-1,j,index+1,word,board)|| searchWord(i+1,j,index+1,word,board)
+          || searchWord(i,j-1,index+1,word,board)|| searchWord(i,j+1,index+1,word,board)){
+            return true;
+        }
+        visited[i,j]=false;
+        return false;
+        
+        
+        
+    }
+}
