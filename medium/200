@@ -1,0 +1,33 @@
+public class Solution {
+    int n=0;
+    int m=0;
+    public int NumIslands(char[][] grid) {
+        
+         
+     int counter = 0;
+    n = grid.Length;
+    if (n == 0) return 0;
+    m = grid[0].Length;
+    for (int i = 0; i < n; i++){
+        for (int j = 0; j < m; j++)
+            if (grid[i][j] == '1') {
+                count(grid, i, j);
+                ++counter;
+            }
+    }    
+    return counter;
+    }
+    
+    private void count(char[][] grid,int i,int j){
+        if (i < 0 || j < 0 || i >= n || j >= m || grid[i][j] != '1') return;
+    grid[i][j] = '0';
+    count(grid, i + 1, j);
+    count(grid, i - 1, j);
+    count(grid, i, j + 1);
+    count(grid, i, j - 1);
+            
+    }
+}
+
+
+    
