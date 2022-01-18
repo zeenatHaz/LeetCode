@@ -1,4 +1,4 @@
-Time Limited excedd answer.Check the apporach though.
+Time Limited excedd answer.Check the apporach though.To avoid this,Use string Buider for C#. See 2nd Solution below.
 
 
 public class Solution {
@@ -23,5 +23,41 @@ public class Solution {
             }
         
         return str;
+    }
+}
+
+
+
+##########################################################
+2nd SOlution using an Overload method of stringBuilder.Append(<key to be inserted>,<No of times to be repeated>)
+public class Solution {
+    public string FrequencySort(string s) {
+        
+        Dictionary<char,int> dt=new Dictionary<char,int>();
+        
+        foreach(var c in s){
+            if(!dt.ContainsKey(c)){
+                dt.Add(c,1);
+            }else{
+                
+                dt[c]+=1;
+            }
+        }
+        
+      
+        
+       var sdi = from c in dt orderby c.Value descending select c;
+        
+        foreach(var ele in sdi){
+            Console.WriteLine(ele.Key +":::"+ele.Value);
+        }
+        var sb = new StringBuilder();
+
+        foreach (var val in sdi)
+        {
+            sb.Append(val.Key,val.Value);//overload method for string builder apend,2nd paramter is for // count of the elements to be appenended/
+        }
+        
+        return sb.ToString();
     }
 }
