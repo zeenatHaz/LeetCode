@@ -1,0 +1,31 @@
+public class Solution {
+  public bool CanConstruct(string ransomNote, string magazine) {
+      Dictionary<char,int> dict=new Dictionary<char,int>();
+      
+      foreach(var ele in magazine){
+          if(!dict.ContainsKey(ele)){
+              dict.Add(ele,1);
+          }else{
+              dict[ele]=dict[ele]+1;
+          }
+      }
+      
+      foreach(var ele in dict){
+          Console.WriteLine(ele.Key);
+           Console.WriteLine(ele.Value);
+      }
+      
+        foreach (var rc in ransomNote)
+            {
+                if (!dict.ContainsKey(rc) || dict[rc] == 0)
+                {
+                    return false;
+                }
+
+                dict[rc]--;
+            }
+
+            return true;
+   
+    }
+}
