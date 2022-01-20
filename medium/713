@@ -29,3 +29,35 @@ public class Solution {
         return count;
     }
 }
+
+public class Solution {
+    public int NumSubarrayProductLessThanK(int[] nums, int k) {
+        
+      int p=1,c=0;
+    if(k<=1){
+        return 0;
+    }
+        int left=0;
+        for(int right=0;right<nums.Length;right++){
+            
+            p=p*nums[right];
+            
+            while(p>=k){
+                //Adjust the left pointer.
+                p=p/nums[left]; //10//50// 100//10//60
+                left++;
+            }
+            
+            //c= 1+(end-start);
+             c+= 1+(right-left);  //1 //3 //5// 8
+            
+             Console.WriteLine("p:=="+p);
+            Console.WriteLine("c:=="+c);
+            
+            
+            
+        }
+        
+        return c;
+    }
+}
