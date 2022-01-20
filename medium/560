@@ -1,0 +1,23 @@
+Brute force technique
+
+
+ public int SubarraySum(int[] nums, int k) {
+        
+        int sum;
+        int c=0;
+        for(int i=0;i<nums.Length;i++){
+            sum=nums[i];
+            if(sum==k){
+                c++;
+            }
+             for(int j=i+1;j<nums.Length;j++){
+                 
+                 sum=sum+nums[j];
+                 if(sum==k){
+                     c++;
+                 }
+             }
+            
+        }
+        return c;
+    }
