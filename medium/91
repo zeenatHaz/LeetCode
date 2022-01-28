@@ -1,0 +1,31 @@
+public class Solution {
+   public int NumDecodings(string s)
+    {
+    //same as Fibonacci series,
+      
+        if (s == null || s.Length == 0 || s[0] == '0')
+            return 0;
+        
+        int n = s.Length;
+        int[] dp = new int[n + 1];
+        
+        dp[0] = 1;
+        dp[1] = 1;
+        
+        for (int i = 2; i <= n; i++)
+        {
+            int num1 = int.Parse(s.Substring(i - 1, 1));
+            int num2 = int.Parse(s.Substring(i - 2, 2));
+            
+            Console.WriteLine(num1+" "+num2);
+           int c1 = num1 >=1 && num1<=9 ? dp[i - 1] : 0;
+              Console.WriteLine(c1);
+            int c2 = num2 >= 10 && num2 <= 26 ? dp[i - 2] : 0;
+                Console.WriteLine("========================");
+                Console.WriteLine(c1+" "+c2);
+            dp[i] = c1 + c2;
+        }
+        
+        return dp[n];
+    }
+}
