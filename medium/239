@@ -1,0 +1,24 @@
+  public int[] MaxSlidingWindow(int[] nums, int k) {
+        int max=int.MinValue;
+        int window_max=k;
+        if(nums.Length==1){
+            return nums;
+        }
+       
+        //creae chuks of size k
+            
+          List<int> res=new List<int>();
+          for(int i=0;i<nums.Length-k+1;i++){
+               int[] temp=new int[k];
+               Array.Copy(nums,i,temp,0,k);
+               int m=temp.Max();
+               res.Add(m);
+          }
+            
+         foreach(var ele in res){
+             Console.WriteLine(ele);
+         }
+        
+        return res.ToArray();
+    }
+}
