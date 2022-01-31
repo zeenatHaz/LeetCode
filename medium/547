@@ -1,0 +1,35 @@
+public class Solution {
+    public int FindCircleNum(int[][] isConnected) {
+        int n=isConnected.Length;
+        bool[] connected=new bool[n];
+         Array.Fill(connected, false);
+        int circles=0;
+        Stack<int> st=new Stack<int>();
+        
+        
+        for(int i=0;i<n;i++){
+            if(connected[i]==false){
+                circles++;
+                st.Push(i);
+                
+                while(st.Count!=0){
+                     int current=st.Peek();
+                st.Pop();
+                 connected[current]=true;
+                    
+                    //retrieve the neighbours
+                    for(int j=0;j<isConnected[current].Length;j++){
+                        if(!connected[j]&& isConnected[current][j]==1){
+                            st.Push(j);
+                        }
+                    }
+                }
+               
+            }
+        }
+        
+        return circles;
+    }
+    
+   
+}
