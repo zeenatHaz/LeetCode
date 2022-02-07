@@ -1,0 +1,13 @@
+public IList<bool> KidsWithCandies(int[] candies, int extraCandies) {
+        List<bool> b=new List<bool>();
+        int maxElement=candies.Max();
+        foreach(var ele in candies){
+            if(ele+extraCandies <maxElement){
+               
+                b.Add(false);
+            }else{
+                b.Add(true);
+            }
+        }
+        return b;
+    }
