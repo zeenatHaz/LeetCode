@@ -1,0 +1,46 @@
+ public static int longestSubStringWithKDist(string s,int k)
+        {
+            int slow = 0, fast = 0;
+            int result = 0;
+
+            if(s.Length==0 || k==0)
+            {
+                return 0;
+            }
+            Dictionary<char, int> dt = new Dictionary<char, int>();
+            while (fast < s.Length)
+            {
+                char c = s.ElementAt(fast);
+                if (!dt.ContainsKey(c))
+                {
+                    dt.Add(c, 1);
+                }
+                else
+                {
+                    dt[c] += 1;
+                }
+
+                while(dt.Count > k)
+                {
+                    //increment the slow pointer.
+                    char d = s.ElementAt(slow);
+                    if (dt[d] == 1)
+                    {
+                        //we will simply remov it.
+                        dt.Remove(d);
+                    }
+                    else
+                    {
+                        // we will decrement the count of d in the dt
+
+                        dt[d] -= 1;
+                    }
+                    slow++;
+
+                }
+                result = Math.Max(result, fast - slow + 1);
+                fast++;
+
+            }
+            return result;
+        }
