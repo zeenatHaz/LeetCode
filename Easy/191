@@ -1,0 +1,15 @@
+public class Solution {
+    public int HammingWeight(uint n) {
+        int cnt = 0;
+        
+        while(n > 0)
+        {
+            uint lsd = n & 1; // get the least significant digit
+            if(lsd == 1)
+                cnt++;
+            n = n >> 1; // right shift n by 1 for checking the next number i
+        }
+        
+        return cnt;
+    }
+}
