@@ -1,0 +1,32 @@
+public class Solution {
+    public int[] CountBits(int n) {
+        int[] res=new int[n+1];
+        
+        for(int i=0;i<=n;i++){
+            //we need to find the binary and count the number of 1s in it.
+            int x=countNumberOfOnes(i);
+            res[i]=x;
+        }
+        return res;
+    }
+    
+    private int countNumberOfOnes(int n){
+        int count=0;
+        //first convert it to binary..
+        List<int> bin=new List<int>();
+        while(n!=0){
+            bin.Add(n%2);
+            n=n/2;
+        }
+        
+        //So I need not reverse it and find the correct binary response//as I just
+        //nedd to find out the number of 1s here.
+        
+                   int c = bin.Where(p => p.Equals(1)).Count();
+            Console.Write($"count is:{c}");
+        
+        return c;
+    }
+    
+    
+}
