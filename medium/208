@@ -1,0 +1,38 @@
+public class Trie {
+  
+    
+     List<string> lst;
+    public Trie() {
+         lst=new List<string>();
+    }
+    
+    public void Insert(string word) {
+        lst.Add(word);
+    }
+    
+    public bool Search(string word) {
+        if(lst.Contains(word)){
+            return true;
+        }
+        
+        return false;
+    }
+    
+    public bool StartsWith(string prefix) {
+        foreach(var ele in lst){
+            if(ele.StartsWith(prefix)){
+                return true;
+            }
+        }
+        
+        return false;
+    }
+}
+
+/**
+ * Your Trie object will be instantiated and called as such:
+ * Trie obj = new Trie();
+ * obj.Insert(word);
+ * bool param_2 = obj.Search(word);
+ * bool param_3 = obj.StartsWith(prefix);
+ */
