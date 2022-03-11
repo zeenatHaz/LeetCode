@@ -1,0 +1,31 @@
+O(n2) Brute force
+
+public class Solution {
+    public int[] DailyTemperatures(int[] temperatures) {
+        int l=temperatures.Length;
+        
+        int[] res=new int[l];
+        
+        //find the index in the arraty which is just greater than the current day.
+        
+        
+        for(int i=0;i<l;i++){
+            int current=temperatures[i];
+            res[i]=getNextWarmerTemp(i,current,temperatures);
+        }
+        return res;
+    }
+    
+    private int getNextWarmerTemp(int currentIndex,int temp,int[] temps){
+        int value=0;
+        int c=0;
+        for(int i=currentIndex+1;i<temps.Length;i++){
+            if(temps[i]>temp){
+              c=i-currentIndex;
+                break;
+            }
+        }
+        
+        return c;
+    }
+}
