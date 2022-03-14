@@ -1,0 +1,38 @@
+public class Solution {
+   
+    public int LadderLength(string beginWord, string endWord, IList<string> wordList) {
+        var count = 1;
+        var queue = new Queue<string>();
+        //populate a dictionary of our complete word set that we can reference later
+        var set = new HashSet<string>(wordList);
+        
+        queue.Enqueue(beginWord);
+        while (queue.Count != 0) {
+            //tracking the level count is important so that we know
+            //when to increment our total count
+            var levels = queue.Count;
+            while (levels > 0) {
+                var currentWord = queue.Dequeue();
+                if (currentWord == endWord) return count;
+                for (var i = 0; i < currentWord.Length; i++) {
+                    var temp = currentWord.ToCharArray();
+                    for (var j = 0; j < 26; j++) {
+                       
+                        temp[i] = (char)('a' + j); //check subsequent characters.
+                    
+                        var wordCreated = new string(temp);
+                        if (set.Contains(wordCreated)) {
+                            queue.Enqueue(wordCreated);
+                          //remvoe to avoid duplicates
+                            set.Remove(wordCreated);
+                        }
+                    }
+                }
+                levels--;
+            }
+            count++;
+        }
+        return 0;
+    }
+
+}
