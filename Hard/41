@@ -1,0 +1,16 @@
+public class Solution {
+    public int FirstMissingPositive(int[] nums) {
+        int possibleSmallestPos=1;
+        HashSet<int> hs=new HashSet<int>(nums);
+        while(true){
+            if(!hs.Contains(possibleSmallestPos)){
+                return possibleSmallestPos;
+            }else{
+                possibleSmallestPos++;
+                continue;
+            }
+        }
+    
+    return -1;
+    }
+}
