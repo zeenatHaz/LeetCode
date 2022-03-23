@@ -1,0 +1,36 @@
+public class Solution {
+    public IList<IList<string>> SuggestedProducts(string[] products, string searchWord)
+    {
+          var result = new List<IList<string>>();
+        if(products==null || products.Length==0 || searchWord.Length==0){
+            return result; //base case
+        }
+      
+        var resultList = new Dictionary<string, List<string>>();
+
+        var searchList = products.OrderBy(x => x).ToList();
+
+        for (int i = 1; i <= searchWord.Length; i++)
+        {
+            var pattern = searchWord.Substring(0, i);
+
+            var wordsThatCanBeRetrived = new List<string>();
+            resultList.Add(pattern, new List<string>());
+
+            foreach (var word in searchList)
+            {
+                if (word.StartsWith(pattern))
+                {
+                    wordsThatCanBeRetrived.Add(word);
+                    resultList[pattern].Add(word);
+                }
+            }
+
+           
+
+            result.Add(wordsThatCanBeRetrived.OrderBy(x => x).Take(3).ToList());
+        }
+
+        return result;
+    }
+}
