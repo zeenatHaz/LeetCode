@@ -1,0 +1,27 @@
+public class Solution {
+    public IList<int> SelfDividingNumbers(int left, int right) {
+        IList<int> res=new List<int>();
+        
+        for(int n=left;n<=right;++n){
+            //if the number is slf divisding,then add it to the list
+          if(selfDividing(n)){
+              res.Add(n);
+          }
+        }
+        
+        return res;
+    }
+    
+    private bool selfDividing(int n){
+        int x=n;
+        while(x>0){
+            int d=x%10; //22
+            x=x/10;
+            if(d==0|| (n%d)!=0){
+                return false;
+            }
+        }
+        
+        return true;
+    }
+}
