@@ -1,0 +1,22 @@
+public class Solution {
+    public bool JudgeCircle(string moves) {
+        bool result=true;
+        int x=0,y=0; //initial position.
+        foreach(var move in moves){
+            if(move=='U'){
+                y++;
+            }else if(move=='R'){
+                x++;
+            }else if(move=='D'){
+                y--;
+                
+            }else{
+                x--;
+            }
+        }
+        if(x==0 && y==0){
+            return true;
+        }
+        return false;
+    }
+}
