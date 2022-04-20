@@ -1,0 +1,13 @@
+public class Solution {
+    public int FinalValueAfterOperations(string[] operations) {
+        int val=0;
+        foreach(var op in operations){
+            if(op[1]=='+'){
+                val++;
+            }else{
+                val--;
+            }
+        }
+        return val;
+    }
+}
