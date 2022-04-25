@@ -1,0 +1,17 @@
+  public IList<int> Intersection(int[][] nums) {
+        //else do the counting sort method.
+        List<int> res=new List<int>();
+        
+        if(nums == null || nums.Length == 0)
+            return res;
+        
+        HashSet<int> set = new HashSet<int>(nums[0]);
+        for(int i = 1; i < nums.Length; i++)
+        {
+            HashSet<int> set2 = new HashSet<int>(nums[i]);
+            set.IntersectWith(set2); //modifies the set
+        }
+        
+        res=set.OrderBy(p=>p).ToList();
+        return res;
+    }
