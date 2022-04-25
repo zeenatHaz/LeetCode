@@ -1,0 +1,11 @@
+ public IList<IList<int>> FindDifference(int[] nums1, int[] nums2) {
+       HashSet<int> l1 = new HashSet<int>(nums1);
+        HashSet<int> l2 = new HashSet<int>(nums2);
+
+        List<IList<int>> res = new List<IList<int>>();  
+
+        res.Add(l1.Except(l2).ToList());
+        res.Add(l2.Except(l1).ToList());        
+        
+        return res;
+    }
