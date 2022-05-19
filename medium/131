@@ -1,0 +1,40 @@
+public class Solution {
+    public IList<IList<string>> Partition(string s) {
+        var result = new List<IList<string>>();
+
+        var n = s.Length;
+        if (n == 0) return result;
+
+        DFS(s, new List<string>(), result);
+        return result;
+    }
+
+    private void DFS(string s, IList<string> oneResult, IList<IList<string>> result) {
+        var n = s.Length;
+
+        if (n == 0) {
+            result.Add(new List<string>(oneResult));
+        } else {
+            for (int count = 1; count <= n; count++) {
+                var firstStr = s.Substring(0, count);
+                if (isPalindrome(firstStr)) {
+                    oneResult.Add(firstStr);
+                    var restStr = s.Substring(count);
+                    DFS(restStr, oneResult, result);
+                    oneResult.RemoveAt(oneResult.Count - 1);
+                }
+            }
+        }
+    }
+    
+    private bool isPalindrome(string s){
+        int n=s.Length;
+        for(int i=0;i<s.Length/2;i++){
+            if(s[i]!=s[n-i-1]){
+                return false;
+            }
+        }
+        
+        return true;
+    }
+}
