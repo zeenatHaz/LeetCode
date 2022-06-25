@@ -1,0 +1,13 @@
+   public int FindGCD(int[] nums) {      
+        
+        int min=nums.Min();
+        int max=nums.Max();
+        return findGCD(min,max);
+    }
+    
+    private int findGCD(int a,int b){
+        if(a==0)
+            return b;
+        
+        return findGCD(b%a,a);
+    }
